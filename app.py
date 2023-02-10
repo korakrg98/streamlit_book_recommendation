@@ -55,7 +55,7 @@ if option == 'Top 50 Books':
     load_overall_analysis()
 
 else:
-    books = st.sidebar.selectbox('select book',set(pt.index))
+    books = st.sidebar.selectbox('select book',sorted(set(pt.index)))
     btn1 = st.sidebar.button('search')
     st.title('5 similar books')
     if btn1:
