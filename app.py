@@ -14,7 +14,7 @@ ratings_with_name = ratings.merge(books,on='ISBN')
 num_rating_df = ratings_with_name.groupby('Book-Title').count()['Book-Rating'].reset_index()
 num_rating_df.rename(columns={'Book-Rating':'num_ratings'},inplace=True)
 
-avg_rating_df = ratings_with_name.groupby('Book-Title').mean()['Book-Rating'].reset_index()
+avg_rating_df = ratings_with_name.groupby('Book-Title')['Book-Rating'].mean().reset_index()
 avg_rating_df.rename(columns={'Book-Rating':'avg_rating'},inplace=True)
 
 popularity_df = num_rating_df.merge(avg_rating_df,on='Book-Title')
